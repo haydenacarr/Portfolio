@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Hayden Carr</div>
+        <div class="social-icons">
+            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/haydenacarr"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Graphics Programmer with a strong interest in real-time rendering and low-level graphics APIs. 
+            Experienced in building basic interactive rendering demos using DirectX 12 and OpenGL. 
+            Passionate about modern graphics pipelines, shader development, and performance optimization. 
+            Eager to continue learning and contribute to the development of video game engines.</p>
+    </section>
+    
+    <section id="games" class="project-section">
+        <h2>Projects</h2>
+        <div class="project">
+            <div class="project-info">
+                <h3>Project Title</h3>
+                <p>Brief description of the project, its purpose, or key features.</p>
+                <p><strong>API:</strong> DirectX 12</p>
+                <p><strong>Language:</strong> C++ </p>
+                <div class="project-links">
+                    <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-media">
+                <div class="carousel">
+                    <button class="arrow left" onclick="prevSlide(0)">&#10094;</button>
+                    <img id="main-image-0" src="Thumb_1.png" alt="Project Screenshot">
+                    <button class="arrow right" onclick="nextSlide(0)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-info">
+                <h3>Project Title</h3>
+                <p>Brief description of the project, its purpose, or key features.</p>
+                <p><strong>API:</strong> DirectX 12</p>
+                <p><strong>Language:</strong> C++ </p>
+                <div class="project-links">
+                    <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-media">
+                <div class="carousel">
+                    <button class="arrow left" onclick="prevSlide(1)">&#10094;</button>
+                    <img id="main-image-1" src="Thumb_1.png" alt="Project Screenshot">
+                    <button class="arrow right" onclick="nextSlide(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-info">
+                <h3>GALACTIC SUPERCOMPUTING: An N-Body Simulation</h3>
+                <p><strong>Description:</strong> An N-body simulation using high-performance computing and real-time 3D visualisation. This project models gravitational interactions between bodies using the Barnes-Hut algorithm and Leapfrog integration, accelerated with OpenMP, and visualised using OpenGL. Made as a third year group project.</p>
+                <p><strong>My thoughts:</strong> This project was my first time using a graphics API so that part is not impressive, but I am proud of the simulation itself. As it took alot of reading maths papers and group discussions to turn it into code.</p>
+                <p><strong>APIs:</strong> OpenGL, OpenMP</p>
+                <p><strong>Languages:</strong> C, C++ </p>
+                <div class="project-links">
+                    <a href="https://github.com/haydenacarr/GalacticSupercomputing"><i class="fab fa-github"></i></a>
+                    <a href="https://youtu.be/MRGiLP0h20k?si=Je2iRFwH6hfYNcbI"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="project-media">
+                <div class="carousel">
+                    <button class="arrow left" onclick="prevSlide(2)">&#10094;</button>
+                    <img id="main-image-2" src="gs-1.png" alt="Project Screenshot">
+                    <button class="arrow right" onclick="nextSlide(2)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>haydencarrbusiness@gmail.com</p>
+        <div class="social-icons">
+            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/haydenacarr"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hayden Carr. All rights reserved.</p>
+    </footer>
+
+    <script>
+    const projectImages = [
+        ["Thumb_1.png", "Thumb_2.png"],  // Project 0
+        ["Thumb_1.png", "Thumb_2.png"],  // Project 1
+        ["gs-1.png", "gs-2.png"]  // Project 2
+    ];
+
+    let currentSlide = [0, 0, 0]; // one entry per project
+
+    function showSlide(projectIndex) {
+        const img = document.getElementById(`main-image-${projectIndex}`);
+        img.src = projectImages[projectIndex][currentSlide[projectIndex]];
+    }
+
+    function prevSlide(projectIndex) {
+        currentSlide[projectIndex] =
+            (currentSlide[projectIndex] - 1 + projectImages[projectIndex].length) %
+            projectImages[projectIndex].length;
+        showSlide(projectIndex);
+    }
+
+    function nextSlide(projectIndex) {
+        currentSlide[projectIndex] =
+            (currentSlide[projectIndex] + 1) % projectImages[projectIndex].length;
+        showSlide(projectIndex);
+    }
+    </script>
+
+</body>
+</html>
