@@ -97,6 +97,13 @@
         <p>&copy; 2025 Hayden Carr. All rights reserved.</p>
     </footer>
 
+    <!-- Modal for fullscreen image viewer -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+
     <script>
     const projectImages = [
         ["Thumb_1.png", "Thumb_2.png"],  // Project 0
@@ -122,6 +129,22 @@
         currentSlide[projectIndex] =
             (currentSlide[projectIndex] + 1) % projectImages[projectIndex].length;
         showSlide(projectIndex);
+    }
+    </script>
+
+    <script>
+    document.querySelectorAll(".carousel img").forEach(img => {
+        img.addEventListener("click", () => {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        });
+    });
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
     }
     </script>
 
