@@ -23,6 +23,7 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
+    font-size: 1.3em;
 }
 
 .logo {
@@ -179,6 +180,7 @@ nav a:hover {
 #about h2, #contact h2 {
     color: var(--accent-color);
     margin-bottom: 1em;
+    font-size: 2em;
 }
 
 footer {
@@ -247,4 +249,18 @@ footer {
 
 .image-modal .close-btn:hover {
   color: #ccc;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* space between image and name */
+}
+
+.profile-pic {
+  width: 80px;       /* size of the image */
+  height: 80px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;  /* ensures the image fills the circle nicely */
+  border: 2px solid var(--accent-color); /* optional border for style */
 }

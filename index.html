@@ -9,10 +9,14 @@
 </head>
 <body>
     <header>
-        <div class="logo">Hayden Carr</div>
+        <div class="logo">
+  <img src="face.jpg" alt="Hayden Carr" class="profile-pic">
+  <span>Hayden Carr</span>
+</div>
         <div class="social-icons">
-            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+            <a href="mailto:haydencarrbusiness@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="https://linkedin.com/in/haydenacarr"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
         </div>
     </header>
 
@@ -26,6 +30,27 @@
     
     <section id="games" class="project-section">
         <h2>Projects</h2>
+        <div class="project">
+            <div class="project-info">
+                <h3>GALACTIC SUPERCOMPUTING: An N-Body Simulation</h3>
+                <p><strong>Description:</strong> An N-body simulation using high-performance computing and real-time 3D visualization. This project models gravitational interactions between bodies using the Barnes-Hut algorithm and Leapfrog integration, accelerated with OpenMP, and visualized using OpenGL. Developed as a third-year group project.</p>
+                <p><strong>Reflection:</strong> I am particularly proud of this simulation we made, as it required extensive study of mathematical papers and collaborative problem solving to accurately implement the algorithms. 
+                </p> <p>This was my first experience working with a graphics API, which was more of a learning exercise, the primary achievement was in translating complex mathematical models into efficient, functional code.</p>
+                <p><strong>Languages:</strong> C, C++ </p>
+                <p><strong>APIs:</strong> OpenGL, OpenMP</p>
+                <div class="project-links">
+                    <a href="https://github.com/haydenacarr/GalacticSupercomputing"><i class="fab fa-github"></i></a>
+                    <a href="https://youtu.be/MRGiLP0h20k?si=Je2iRFwH6hfYNcbI"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="project-media">
+                <div class="carousel">
+                    <button class="arrow left" onclick="prevSlide(2)">&#10094;</button>
+                    <img id="main-image-2" src="gs-1.png" alt="Project Screenshot">
+                    <button class="arrow right" onclick="nextSlide(2)">&#10095;</button>
+                </div>
+            </div>
+        </div>
         <div class="project">
             <div class="project-info">
                 <h3>Project Title</h3>
@@ -62,34 +87,14 @@
                 </div>
             </div>
         </div>
-        <div class="project">
-            <div class="project-info">
-                <h3>GALACTIC SUPERCOMPUTING: An N-Body Simulation</h3>
-                <p><strong>Description:</strong> An N-body simulation using high-performance computing and real-time 3D visualisation. This project models gravitational interactions between bodies using the Barnes-Hut algorithm and Leapfrog integration, accelerated with OpenMP, and visualised using OpenGL. Made as a third year group project.</p>
-                <p><strong>My thoughts:</strong> This project was my first time using a graphics API so that part is not impressive, but I am proud of the simulation itself. As it took alot of reading maths papers and group discussions to turn it into code.</p>
-                <p><strong>APIs:</strong> OpenGL, OpenMP</p>
-                <p><strong>Languages:</strong> C, C++ </p>
-                <div class="project-links">
-                    <a href="https://github.com/haydenacarr/GalacticSupercomputing"><i class="fab fa-github"></i></a>
-                    <a href="https://youtu.be/MRGiLP0h20k?si=Je2iRFwH6hfYNcbI"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="project-media">
-                <div class="carousel">
-                    <button class="arrow left" onclick="prevSlide(2)">&#10094;</button>
-                    <img id="main-image-2" src="gs-1.png" alt="Project Screenshot">
-                    <button class="arrow right" onclick="nextSlide(2)">&#10095;</button>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>haydencarrbusiness@gmail.com</p>
         <div class="social-icons">
-            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
+            <a href="mailto:haydencarrbusiness@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="https://linkedin.com/in/haydenacarr"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/haydenacarr"><i class="fab fa-github"></i></a>
         </div>
     </section>
 
@@ -133,20 +138,34 @@
     </script>
 
     <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
     document.querySelectorAll(".carousel img").forEach(img => {
         img.addEventListener("click", () => {
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-
-        modal.style.display = "block";
-        modalImg.src = img.src;
+            modal.style.display = "block";
+            modalImg.src = img.src;
         });
     });
 
     function closeModal() {
-        document.getElementById("imageModal").style.display = "none";
+        modal.style.display = "none";
     }
-    </script>
+
+    // Close modal if clicking outside the image (on the overlay)
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal on ESC key press
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal.style.display === "block") {
+            closeModal();
+        }
+    });
+    </script> 
 
 </body>
 </html>
